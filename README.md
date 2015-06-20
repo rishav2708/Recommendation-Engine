@@ -27,7 +27,7 @@ two categories.
       The randomness score tells the distribution of similar kinds of places on a given geo spatial domain
       Less the randomness higher the score of the type/class becomes
       
-  When the results are on the basis of names, we try to #predict the related types and other places that may belong to 
+  When the results are on the basis of names, we try to # predict the related types and other places that may belong to 
   the same category (following the concept of nearest neighbors)
  We are though concerned with only single word search till now and would try to improve on the query processing part.
  
