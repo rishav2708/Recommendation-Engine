@@ -10,7 +10,7 @@ Initially, in the engine we are searching in only two domains that are (By Name 
 For every type of search by the user the results are displayed on the ranking of the documents on the basis of
 two categories.
   They are : 
-              ~~~bash
+             ~~~bash
               i) The randomness of the places in the particular category in the vicinty
               ii) The relatedness of the place with the types (Name based search).
               ~~~
@@ -22,8 +22,10 @@ two categories.
  Randomness is calculated on the basis of distance metric for the availability of same types of places in a given 
  spatial domain. 
  We have specially pondered over certain points to generate a proper algorithm to define randomness:
-      >The randomness score tells the distribution of similar kinds of places on a given geo spatial domain
-      >Less the randomness higher the score of the type/class becomes
+      
+      
+      The randomness score tells the distribution of similar kinds of places on a given geo spatial domain
+      Less the randomness higher the score of the type/class becomes
       
   When the results are on the basis of names, we try to predict the related types and other places that may belong to 
   the same category (following the concept of nearest neighbors)
