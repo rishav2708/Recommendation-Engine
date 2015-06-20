@@ -10,10 +10,10 @@ Initially, in the engine we are searching in only two domains that are (By Name 
 For every type of search by the user the results are displayed on the ranking of the documents on the basis of
 two categories.
   They are : 
-             ~~~bash
-              The randomness of the places in the particular category in the vicinty
-               The relatedness of the place with the types (Name based search).
-              ~~~
+   ~~~bash
+    The randomness of the places in the particular category in the vicinty
+    The relatedness of the place with the types (Name based search).
+  ~~~
  The randomness means the availability of the search results. The type which is easily available and relates nearly 
  to the searching query is displayed first.
  We have also added a provision to cluster the places on the basis of ranking and hence it would also contribute
