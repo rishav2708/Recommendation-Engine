@@ -1,0 +1,66 @@
+<html>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" > </script>
+<script>
+$(document).ready(function(){
+     $("#btn").click(function(){
+     	$.ajax({
+     		url:"/suggest",
+            dataType:"json",
+     		data:{q:document.getElementById("query").value},
+     		success:function(data,status,xhr){
+                       //mainKey=document.getElementById("query").value
+                       nameSearch=data['res1']
+                       keys1=Object.keys(nameSearch)
+                       myText=""
+                       myText+="<h1>Related Types</h1>"
+                       for(i=0;i<(nameSearch["related_class"]).length;i++)
+                       {
+                        myText+="<div>"+nameSearch["related_class"][i]+"</div>"
+                       }
+                       myText+="<h1>Names And Types</h1>"
+                       for(i=0;i<(nameSearch['places']).length;i++)
+                       {
+                          myText+="<h1>"+nameSearch['places'][i][1]+"</h1>"
+                          pla=nameSearch['places'][i][0]
+                          for(j=0;j<pla.length;j++)
+                          {
+                            myText+="<div>"+pla[j]+"</div>"
+                          }
+                       }
+                       $("#myNameSearch").html(myText)
+                       types=data['res2']
+                       keys=Object.keys(types)
+                       t=""
+                       for (i=0;i<keys.length;i++)
+                       {
+                           t+="<h1>"+keys[i]+"</h1>"
+                           //if (keys[i]==mainKey)
+                            //t+="<h1>"+mainKey+"</h1>"
+                            f=types[keys[i]]
+                            for(j=0;j<f.length;f++)
+                            {
+                                t+=f[j][0]
+                                t+=f[j][1]
+                                t+=f[j][2]
+                                t="<div>"+t+"</div>"
+                            }
+                              //t+=[0][0];
+
+                           
+                       }
+                       $("#myRes").html(t)
+     		}
+     	})
+     })
+   })
+</script>
+<body>
+	Hello
+	<input type="search" id="query" name="query">
+	<input type="button" id="btn" value="get" />
+    <h1>Search By name should be displayed here </h1>
+    <div id="myNameSearch"></div>
+    <h1>Search By type should be displayed here </h1>
+    <div id="myRes"></div>
+</body>
+</html>

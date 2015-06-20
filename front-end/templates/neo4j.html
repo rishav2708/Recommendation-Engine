@@ -1,0 +1,98 @@
+<div class="modal-content" style="min-height:90%;">
+  
+  <div class="modal-body">
+   <div class="tabbable"> <!-- Only required for left/right tabs -->
+
+   <!--  <ul class="nav nav-tabs" id="myTab">
+      <li class="active" style=""><a href="#tab1" data-toggle="tab">Connect</a></li>
+      <li><a href="#tab2" data-toggle="tab">Query</a></li>
+    </ul> -->
+<!--
+    <div class="tab-content" style="margin-top:15px">
+      <div class="tab-pane active" id="tab1">
+        <form class="form-horizontal" id="section1">
+          <input type="hidden" id="id" name="id" value="" > 
+
+          <div class="form-group">
+            <div class="col-sm-12">
+              <input type="text" class="form-control input-sm" id="ip" name="ip" placeholder="Ip Address">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="col-sm-12">
+              <input type="number" class="form-control input-sm" id="port" name="port" placeholder="Port">
+            </div>
+          </div>
+
+           <hr>
+          <div class="form-group">
+            <div class="col-sm-12">
+              <input type="text" class="form-control input-sm" id="username" name="username" placeholder="Username">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="col-sm-12">
+              <input type="password" class="form-control input-sm" id="pswd" name="pswd" placeholder="password">
+            </div>
+          </div>
+          <hr>
+          <div class="form-group">
+            <div class="col-sm-12">
+              <input type="text" class="form-control input-sm" id="connection_time" name="connection_time" placeholder="connection timeout">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="col-sm-12">
+              <input type="password" class="form-control input-sm" id="socket_time" name="socket_time" placeholder="socket timeout">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <button id="connect" type="button" class="btn btn-default btn-xs col-sm-3" style="margin-left:5%">
+              Connect
+            </button>
+          <div class="col-sm-12" style="margin-top: 5px;">
+             <p id="connect_error" style="font-size:13px;"></p>
+            </div>
+          </div>
+        </form>  
+      </div>       
+
+      <div class="tab-pane" id="tab2">
+
+        <form class="form-horizontal" id="section3" style="margin-top:10px;">
+
+ -->
+ <input type="hidden" id="latitude">
+ <input type="hidden" id="longitude">     
+      <label class="control-label" for="query_builder">Query</label>
+          <input type="text" id="sample" name="query" class="form-control input-sm" rows="10" style="resize: none;" >
+<!--           <hr>
+          <div style="width:215px; background-color:#f5f5f5">
+              <div class="text-center"><strong></strong></div>
+            <div id="query_display"  style="overflow-y:auto; height:220px;">
+            </div>
+          </div> -->
+          <button id="query_sample" type="button" class="btn btn-sm btn-primary" style="margin-top:10px" onclick="clicking() " data-toggle="modal" data-target="#output">Preview</button>
+        </form>
+<div id="neooutput"></div>
+      </div>
+
+      
+     <!-- Button trigger modal -->
+
+<!-- Modal -->
+<!-- 
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div> -->
+    </div>
+  </div>
+</div>
+  
+<script src="static/jquery.min.js"></script>
+        <script src="static/d3.min.js"></script>
+        <script src="static/neo.js"></script>

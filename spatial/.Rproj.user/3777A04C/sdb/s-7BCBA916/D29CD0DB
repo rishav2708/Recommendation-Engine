@@ -1,0 +1,17 @@
+{
+    "contents" : "library(RNeo4j)\nlibrary(ape)\ncompute=function(csvFile)\n{\n  #csvFile=read.csv(csvName)\n  #print (str(csvFile))\n  d=as.matrix(dist(cbind(csvFile$lat,csvFile$lon)))\n  d=(1/d)\n  for(i in 1:length(d))\n  {\n    if(d[i]==Inf)\n    {\n      d[i]=0\n    }\n  }\n  csvFile$typo=as.numeric(as.factor(csvFile$typo))\n  return(Moran.I(csvFile$typo,d))  #if any value returns error then we do not have dispersed data and solution is simply custered\n  \n  \n  \n}\ngraph=startGraph(\"http://localhost:7474/db/data\")\nquery=\"match (n:Class) return distinct n.class as  classes\"\nclasses=cypher(graph,query)\n#print (graph)\n#print (st)\nx=data.frame()\n#x=rbind(x,c(\"class\",\"observed\",\"expected\",\"p-value\"))\nfor (i in 1:length(classes$classes))\n{\n  myquery=paste(\"match (n:Class)-[r]-(c1:Class) where n.class=~'.*\",classes$classes[i],\"*.' with collect(distinct c1.class) as ext,n start p=node:place('withinDistance:[13.0827,80.2707,15.0]') match (p) where p.type in ext or p.type=n.class return p.lat as lat,p.lon as lon,p.type as typo\",sep='')\n  st=cypher(graph,myquery)\n  #print (str(st))\n  tryCatch(\n\n            {\n             print (classes$classes[i])\n              print (compute(st))\n              result=data.frame(compute(st))\n              x=rbind(x,c(classes$classes[i],result$observed,result$expected,result$p.value))\n              #print (result$observed)\n              #x$class=class\n              #write.table()\n              #plot(compute(st))\n            },\n            error=function(cond)\n            { }\n    )\n}\n#print (x)\n#mquery=\"match (n:Class)-[r]-(c1:Class) where n.class=~'.*school*.' with collect(distinct c1.class) as ext,n start p=node:place('withinDistance:[28.61,77.21,15.0]') match (p) where p.type in ext or p.type=n.class return p.lat as lat,p.lon as lon,p.type as typo\"\n#st=cypher(graph,mquery)\n#print (st)\n#print (compute(st))\n\n#x=colnames(\"class\",\"observed\",\"expected\")\ncolnames(x)=c(\"class\",\"observed\",\"expected\",\"p-value\")\nwrite.table(x,file=\"chennai_randomness.csv\",sep=\",\",row.names=FALSE,col.names = TRUE)",
+    "created" : 1434521205589.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "944340382",
+    "id" : "D29CD0DB",
+    "lastKnownWriteTime" : 1434540902,
+    "path" : "~/spatial/ano.r",
+    "project_path" : "ano.r",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "source_on_save" : false,
+    "type" : "r_source"
+}

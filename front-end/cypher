@@ -1,0 +1,19 @@
+match (n:Class)-[r:INHERITS]-(n1) where n.class=~'.*(?i)police*.' 
+with  collect(n1.class) as ext,n
+start p=node:places('withinDistance:[28.6138967, 77.2159562,10.0]') match (p)-[r]-(c:Class) where c.class in ext or c.class=n.class  return p.name,p.type order by p.type;
+
+
+match (n:Class)-[r:INHERITS]->(n1) where n.class=~'.*(?i)beauty*.' 
+with  collect( distinct n1.class) as ext,n
+start p=node:places('withinDistance:[28.6138967, 77.2159562,10.0]') match (p)-[r1]-(c:Class) where p.type in ext or p.type=n.class return 
+case p.type
+when n.class
+then collect (distinct p.name) 
+else
+collect (distinct p.name)  end  as result,p.type
+
+
+
+
+
+

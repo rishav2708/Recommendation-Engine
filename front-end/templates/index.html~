@@ -1,0 +1,21 @@
+<html>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" > </script>
+<script>
+$(document).ready(function(){
+     $("#btn").click(function(){
+     	$.ajax({
+     		url:"/suggest",
+     		data:{q:document.getElementById("query").value},
+     		success:function(data,status,xhr){
+                       alert(data);
+     		}
+     	})
+     })
+   })
+</script>
+<body>
+	Hello
+	<input type="search" id="query" name="query">
+	<input type="button" id="btn" value="get" />
+</body>
+</html>
