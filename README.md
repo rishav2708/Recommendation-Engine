@@ -11,8 +11,8 @@ For every type of search by the user the results are displayed on the ranking of
 two categories.
   They are : 
              ~~~bash
-              i) The randomness of the places in the particular category in the vicinty
-              ii) The relatedness of the place with the types (Name based search).
+              The randomness of the places in the particular category in the vicinty
+               The relatedness of the place with the types (Name based search).
               ~~~
  The randomness means the availability of the search results. The type which is easily available and relates nearly 
  to the searching query is displayed first.
@@ -23,11 +23,11 @@ two categories.
  spatial domain. 
  We have specially pondered over certain points to generate a proper algorithm to define randomness:
       
-      
+      ~~~bash
       The randomness score tells the distribution of similar kinds of places on a given geo spatial domain
       Less the randomness higher the score of the type/class becomes
-      
-  When the results are on the basis of names, we try to predict the related types and other places that may belong to 
+      ~~~
+  When the results are on the basis of names, we try to #predict the related types and other places that may belong to 
   the same category (following the concept of nearest neighbors)
  We are though concerned with only single word search till now and would try to improve on the query processing part.
  
